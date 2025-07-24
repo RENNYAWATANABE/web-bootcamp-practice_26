@@ -2,42 +2,59 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>卓球得点表</title>
+    <meta charset="UTF-8"> <!-- 文字コードをUTF-8に設定（日本語など多言語対応） -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- IEブラウザ互換対応 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- スマホ対応（レスポンシブ設定） -->
+    <title>卓球得点表</title> <!-- ブラウザのタブに表示されるタイトル -->
+
+    <!-- BulmaというCSSフレームワークをCDNから読み込み。スタイルを整えるために使用 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 
 <body>
+    <!-- Bulmaのsectionクラスを使ってページ全体を区切る -->
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-half is-offset-one-quarter">
+                <div class="column is-half is-offset-one-quarter"> <!-- 中央寄せカラム -->
+
+                    <!-- カード型のレイアウト -->
                     <div class="card">
+
+                        <!-- カードの画像部分 -->
                         <div class="card-image">
                             <figure class="image is-2by1">
+                                <!-- 卓球イメージ画像（Unsplashから） -->
                                 <img src="https://images.unsplash.com/photo-1534158914592-062992fbe900?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1075&q=80"
                                     alt="">
                             </figure>
                         </div>
+
+                        <!-- カードのヘッダー -->
                         <header class="card-header">
                             <p class="card-header-title">
                                 卓球得点表
                             </p>
                         </header>
+
+                        <!-- カードのメインコンテンツ -->
                         <div class="card-content">
                             <div class="content">
-                                <h1 class="title is-1"><span id="p1Display">0</span> 対 <span id="p2Display">0</span>
+                                <!-- スコア表示部分 -->
+                                <h1 class="title is-1">
+                                    <span id="p1Display">0</span> 対 <span id="p2Display">0</span>
                                 </h1>
 
+                                <!-- 説明文 -->
                                 <p class="subtitle">
                                     下のボタンを押して得点を管理しよう
                                 </p>
 
+                                <!-- 勝利条件（先取点数）の選択 -->
                                 <label for="winningScore" class="label is-large is-inline">何点先取？</label>
                                 <div class="select is-rounded">
                                     <select name="" id="winningScore">
+                                        <!-- セレクトボックスの選択肢 -->
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
@@ -51,21 +68,26 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- カードのフッター（操作ボタン部分） -->
                         <footer class="card-footer">
+                            <!-- プレイヤー1の得点ボタン -->
                             <button id="p1Button" class="is-primary button card-footer-item is-large">+1 プレイヤー１</button>
+
+                            <!-- プレイヤー2の得点ボタン -->
                             <button id="p2Button" class="is-info button card-footer-item is-large">+1 プレイヤー２</button>
+
+                            <!-- スコアリセットボタン -->
                             <button id="reset" class="is-danger button card-footer-item is-large">リセット</button>
                         </footer>
-                    </div>
+
+                    </div> <!-- /.card -->
                 </div>
             </div>
         </div>
     </section>
 
-
-
-
-
+    <!-- JavaScriptファイルの読み込み（得点処理のロジックを記述） -->
     <script src="app.js"></script>
 </body>
 
